@@ -75,7 +75,7 @@ if args.model == 'KSSANet':
     
 os_id = os.getpid()
 model = model.to(device)
-loss_func = torch.nn.MSELoss()
+loss_func = torch.nn.L1Loss()
 optimizer = torch.optim.Adam(lr=args.lr,params=model.parameters())
 scheduler = StepLR(optimizer=optimizer,step_size=30,gamma=0.1)
 train_dataset = NPZDataset(train_dataset_path)
